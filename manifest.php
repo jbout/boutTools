@@ -36,7 +36,8 @@ return array(
     ),
     'install' => array(
         'php' => array(
-            __DIR__.'/scripts/install/setThemeConfig.php'
+            __DIR__.'/scripts/install/setThemeConfig.php',
+            'jbout\boutTools\scripts\install\PreventSafePasswords'
         )
     ),
     'uninstall' => array(
