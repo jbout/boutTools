@@ -18,6 +18,10 @@
  *               
  * 
  */               
+use jbout\boutTools\scripts\install\AddIdAction;
+use jbout\boutTools\scripts\install\PreventSafePasswords;
+use oat\Taskqueue\Action\InitRdsQueue;
+use jbout\boutTools\scripts\install\SetTheme;
 
 return array(
     'name' => 'boutTools',
@@ -36,8 +40,10 @@ return array(
     ),
     'install' => array(
         'php' => array(
-            __DIR__.'/scripts/install/setThemeConfig.php',
-            'jbout\boutTools\scripts\install\PreventSafePasswords'
+            SetTheme::class,
+            InitRdsQueue::class,
+            PreventSafePasswords::class,
+            AddIdAction::class,
         )
     ),
     'uninstall' => array(
