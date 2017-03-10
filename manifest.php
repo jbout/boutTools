@@ -22,6 +22,8 @@ use jbout\boutTools\scripts\install\AddIdAction;
 use jbout\boutTools\scripts\install\PreventSafePasswords;
 use oat\Taskqueue\Action\InitRdsQueue;
 use jbout\boutTools\scripts\install\SetTheme;
+use oat\tao\model\user\TaoRoles;
+use jbout\boutTools\controller\OpenId;
 
 return array(
     'name' => 'boutTools',
@@ -37,11 +39,12 @@ return array(
 	'managementRole' => 'http://www.tao.lu/Ontologies/generis.rdf#boutToolsManager',
     'acl' => array(
         array('grant', 'http://www.tao.lu/Ontologies/generis.rdf#boutToolsManager', array('ext'=>'boutTools')),
+        array('grant', TaoRoles::ANONYMOUS, OpenId::class),
     ),
     'install' => array(
         'php' => array(
             SetTheme::class,
-            InitRdsQueue::class,
+            //InitRdsQueue::class,
             PreventSafePasswords::class,
             AddIdAction::class,
         )
