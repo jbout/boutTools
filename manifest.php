@@ -18,13 +18,17 @@
  *               
  * 
  */               
+use jbout\boutTools\scripts\install\AddIdAction;
+use jbout\boutTools\scripts\install\PreventSafePasswords;
+use oat\Taskqueue\Action\InitRdsQueue;
+use jbout\boutTools\scripts\install\SetTheme;
 
 return array(
     'name' => 'boutTools',
 	'label' => 'Boutools',
 	'description' => 'Simple Tools and a DARRRK theme',
     'license' => 'GPL-2.0',
-    'version' => '0.1.0',
+    'version' => '0.1.1',
 	'author' => 'Open Assessment Technologies SA',
 	'requires' => array(
         'ontoBrowser' => '>=2.7',
@@ -36,7 +40,10 @@ return array(
     ),
     'install' => array(
         'php' => array(
-            __DIR__.'/scripts/install/setThemeConfig.php'
+            SetTheme::class,
+            InitRdsQueue::class,
+            PreventSafePasswords::class,
+            //AddIdAction::class,
         )
     ),
     'uninstall' => array(

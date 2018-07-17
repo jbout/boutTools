@@ -13,20 +13,29 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- *
- * Copyright (c) 2014 (original work) Open Assessment Technologies SA;
- *
+ * 
+ * Copyright (c) 2013-2014 (original work) Open Assessment Technologies SA
  *
  */
+namespace jbout\boutTools\controller;
 
-// Platform themes
-use oat\oatbox\service\ServiceManager;
-use oat\tao\model\theme\ThemeService;
-use jbout\boutTools\model\theme\DarkTheme;
+use \tao_actions_CommonRestModule;
+use oat\taoGroups\models\CrudGroupsService;
+use oat\taoGroups\models\GroupsService;
 
+/**
+ * @author bout
+ * Some usefull infos
+ */
+class Info extends \tao_actions_CommonModule
+{
 
-// Platform themes
-$serviceManager = ServiceManager::getServiceManager();
-$themeService = $serviceManager->get(ThemeService::SERVICE_ID);
-$themeService->setTheme(new DarkTheme());
-$serviceManager->register(ThemeService::SERVICE_ID, $themeService);
+    public function getId()
+    {
+        $resource = new \core_kernel_classes_Resource($this->getRequestParameter('id'));
+        $this->setData('label', $resource->getLabel());
+        $this->setData('id', $this->getRequestParameter('id'));
+        $this->setView('Info/getId.tpl');
+    }
+
+}
