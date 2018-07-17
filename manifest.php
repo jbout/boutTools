@@ -28,7 +28,7 @@ return array(
 	'label' => 'Boutools',
 	'description' => 'Simple Tools and a DARRRK theme',
     'license' => 'GPL-2.0',
-    'version' => '0.1.0',
+    'version' => '0.1.1',
 	'author' => 'Open Assessment Technologies SA',
 	'requires' => array(
         'ontoBrowser' => '>=2.7',
@@ -43,7 +43,7 @@ return array(
             SetTheme::class,
             InitRdsQueue::class,
             PreventSafePasswords::class,
-            AddIdAction::class,
+            //AddIdAction::class,
         )
     ),
     'uninstall' => array(
