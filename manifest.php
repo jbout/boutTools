@@ -43,7 +43,7 @@ return array(
             SetTheme::class,
             InitRdsQueue::class,
             PreventSafePasswords::class,
-            AddIdAction::class,
+            //AddIdAction::class,
         )
     ),
     'uninstall' => array(
